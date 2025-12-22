@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StyleStreet</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -20,6 +21,11 @@
             </div>
 
             <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+
+            <button class="cart-toggle" aria-label="Open cart" aria-expanded="false">
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-badge">0</span>
+            </button>
 
             <div class="navlinks" id="main-nav">
                 <ul>
@@ -92,28 +98,28 @@
                     <img src="images/img1.avif" alt="Classic Jacket">
                     <h4>Classic Jacket</h4>
                     <p>$49.99</p>
-                    <button>Add to Cart</button>
+                    <button class="add-to-cart" data-id="p1" data-name="Classic Jacket" data-price="49.99">Add to Cart</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/img6.avif" alt="Women's Handbag">
                     <h4>Women's Handbag</h4>
                     <p>$39.99</p>
-                    <button>Add to Cart</button>
+                    <button class="add-to-cart" data-id="p2" data-name="Women's Handbag" data-price="39.99">Add to Cart</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/img1.avif" alt="Smart Watch">
                     <h4>Smart Watch</h4>
                     <p>$59.99</p>
-                    <button>Add to Cart</button>
+                    <button class="add-to-cart" data-id="p3" data-name="Smart Watch" data-price="59.99">Add to Cart</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/img6.avif" alt="Stylish Sneakers">
                     <h4>Stylish Sneakers</h4>
                     <p>$69.99</p>
-                    <button>Add to Cart</button>
+                    <button class="add-to-cart" data-id="p4" data-name="Stylish Sneakers" data-price="69.99">Add to Cart</button>
                 </div>
 
             </div>
@@ -171,6 +177,25 @@
     </div>
 
     <!-- FOOTER -->
+    <!-- CART DRAWER -->
+    <aside id="cart-drawer" aria-hidden="true">
+        <div class="cart-inner">
+            <header class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="cart-close" aria-label="Close cart"><span class="material-icons">close</span></button>
+            </header>
+
+            <div class="cart-items">
+                <!-- items rendered by JS -->
+            </div>
+
+            <footer class="cart-footer">
+                <div class="cart-total">Total: <span class="cart-total-value">$0.00</span></div>
+                <button class="checkout">Checkout</button>
+            </footer>
+        </div>
+    </aside>
+
     <div id="footer">
         <div class="footer-links">
             <ul>
