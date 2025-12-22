@@ -97,6 +97,26 @@ img {
     color: var(--primary);
 }
 
+/* =====================
+   MOBILE NAVBAR
+===================== */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navlinks {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
 /* LOGIN */
 .log ul {
     display: flex;
