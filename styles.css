@@ -7,6 +7,8 @@
     --text: #333;
     --muted: #666;
     --primary: #e63946;
+    --brand-color: #1e88ff;
+    --hero-bg: #fff9e6;
     --secondary: #222;
     --border: #eaeaea;
 }
@@ -17,6 +19,8 @@ body.dark {
     --text: #f1f1f1;
     --muted: #aaa;
     --primary: #ff6b6b;
+    --brand-color: #1e88ff;
+    --hero-bg: rgba(255,255,255,0.02);
     --secondary: #000;
     --border: #333;
 }
@@ -101,6 +105,11 @@ img {
     height: 40px;
     border-radius: 8px;
     background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
 /* brand text next to logo */
 .brand {
     display: flex;
@@ -111,7 +120,7 @@ img {
 .brand-text {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary); /* match logo/accent color */
+    color: var(--brand-color); /* logo/brand accent color */
     line-height: 1;
 }
 
@@ -124,10 +133,6 @@ img {
         font-size: 16px;
         margin-top: 4px;
     }
-}
-    border: 1px solid transparent;
-    cursor: pointer;
-    margin-left: 8px;
 }
 
 .theme-toggle .material-icons { font-size: 20px; color: var(--text); }
@@ -341,7 +346,7 @@ body,
     gap: 40px;
     align-items: center;
     margin-bottom: 80px;
-    background: #fff9e6; /* light yellowish */
+    background: var(--hero-bg); /* light yellowish in light mode, subtle in dark */
     padding: 35px;
     border-radius: 15px;
 }
@@ -349,6 +354,7 @@ body,
 .CTAarea h1 {
     font-size: 42px;
     margin-bottom: 15px;
+    color: var(--text);
 }
 
 .CTAarea p {
