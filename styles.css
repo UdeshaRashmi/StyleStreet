@@ -80,7 +80,7 @@ img {
 }
 
 .logo img {
-    height: 45px;
+    height:90px;
 }
 
 /* hamburger button (hidden on desktop) */
@@ -90,6 +90,40 @@ img {
     border: none;
     font-size: 24px;
     cursor: pointer;
+}
+
+/* theme toggle */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.theme-toggle .material-icons { font-size: 20px; color: var(--text); }
+
+/* smooth theme transitions for main surfaces */
+body,
+.headerarea,
+.product-card,
+.category-card,
+.testimonial-card,
+.why-choose-us,
+.newsletter,
+#cart-drawer,
+#footer {
+    transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+/* small visual for pressed state */
+.theme-toggle[aria-pressed="true"] {
+    background: rgba(0,0,0,0.06);
 }
 
 /* cart toggle */
