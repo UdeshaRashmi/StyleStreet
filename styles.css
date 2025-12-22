@@ -101,6 +101,30 @@ img {
     height: 40px;
     border-radius: 8px;
     background: transparent;
+/* brand text next to logo */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary); /* match logo/accent color */
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .brand {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .brand-text {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+}
     border: 1px solid transparent;
     cursor: pointer;
     margin-left: 8px;
