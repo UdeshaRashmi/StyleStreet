@@ -83,6 +83,61 @@ img {
     height: 45px;
 }
 
+/* hamburger button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: inline-block;
+        color: var(--text);
+        margin-left: 10px;
+    }
+
+    .navlinks {
+        display: none;
+    }
+
+    /* when JS toggles `.open` on the nav/log, show them */
+    .navlinks.open {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 68px;
+        background: var(--card);
+        padding: 18px 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    .navlinks.open ul {
+        display: block;
+        gap: 12px;
+    }
+
+    .navlinks.open ul li {
+        padding: 8px 0;
+    }
+
+    .log.open {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 68px;
+        background: var(--card);
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+}
+
 /* NAV LINKS */
 .navlinks ul {
     display: flex;
@@ -97,24 +152,7 @@ img {
     color: var(--primary);
 }
 
-/* =====================
-   MOBILE NAVBAR
-===================== */
-.menu-toggle {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .navlinks {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
+ 
 
 
 /* LOGIN */
@@ -136,12 +174,6 @@ img {
 @media (max-width: 768px) {
     .navlinks {
         display: none;
-    }
-
-    .headerarea::after {
-        content: "☰";
-        font-size: 26px;
-        cursor: pointer;
     }
 }
 
