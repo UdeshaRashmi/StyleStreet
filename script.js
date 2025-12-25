@@ -50,6 +50,65 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Simple client-side auth (demo only) - stores users in localStorage under 'ss_users'
+document.addEventListener('DOMContentLoaded', function () {
+  const USERS_KEY = 'ss_users_v1';
+
+  function loadUsers() {
+    try { return JSON.parse(localStorage.getItem(USERS_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function saveUsers(u) { try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch (e) {} }
+
+  function showMessage(el, msg, ok) {
+    if (!el) return; el.textContent = msg; el.style.color = ok ? 'green' : 'var(--muted)';
+  }
+
+  async function handleSignup(form) {
+    const name = (form.querySelector('#name') || {}).value || '';
+    const email = (form.querySelector('#email') || {}).value.trim().toLowerCase();
+    const password = (form.querySelector('#password') || {}).value;
+    const password2 = (form.querySelector('#password2') || {}).value;
+    const msgEl = document.getElementById('signup-message');
+
+    if (!name || !email || !password) { showMessage(msgEl, 'Please complete all fields.'); return; }
+    if (password !== password2) { showMessage(msgEl, 'Passwords do not match.'); return; }
+
+    const users = loadUsers();
+    if (users.find(u => u.email === email)) { showMessage(msgEl, 'An account with that email already exists.'); return; }
+
+    users.push({ name, email, password });
+    saveUsers(users);
+    showMessage(msgEl, 'Account created. Redirecting to login...', true);
+    setTimeout(() => { window.location.href = 'login.html'; }, 900);
+  }
+
+  function handleLogin(form) {
+    const email = (form.querySelector('#login-email') || {}).value.trim().toLowerCase();
+    const password = (form.querySelector('#login-pass') || {}).value;
+    const msgEl = document.getElementById('login-message');
+
+    if (!email || !password) { showMessage(msgEl, 'Please enter email and password.'); return; }
+    const users = loadUsers();
+    const user = users.find(u => u.email === email && u.password === password);
+    if (!user) { showMessage(msgEl, 'Invalid credentials.'); return; }
+
+    try { localStorage.setItem('ss_current_user', JSON.stringify({ email: user.email, name: user.name })); } catch (e) {}
+    showMessage(msgEl, 'Signed in — redirecting...', true);
+    setTimeout(() => { window.location.href = 'index.html'; }, 700);
+  }
+
+  document.addEventListener('submit', function (e) {
+    const form = e.target;
+    if (form && form.id === 'signup-form') {
+      e.preventDefault(); handleSignup(form); return;
+    }
+    if (form && form.id === 'login-form') {
+      e.preventDefault(); handleLogin(form); return;
+    }
+  });
+
+});
+
 // Cart functionality
 document.addEventListener('DOMContentLoaded', function () {
   const CART_KEY = 'ss_cart_v1';

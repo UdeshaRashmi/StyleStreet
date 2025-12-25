@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StyleStreet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+
+    <!-- HEADER (simple copy) -->
+    <div id="header">
+        <div class="headerarea">
+
+            <div class="brand">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.jpg" alt="StyleStreet Logo"></a>
+                </div>
+                <div class="brand-text">StyleStreet</div>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+
+            <button class="cart-toggle" aria-label="Open cart" aria-expanded="false">
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-badge">0</span>
+            </button>
+
+            <div class="navlinks" id="main-nav">
+                <ul>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="log">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="bodycontent">
+        <div class="Hero" style="margin-top:30px;">
+            <div class="CTAarea">
+                <h1>Welcome Back</h1>
+                <p>Please sign in to access your account and orders.</p>
+            </div>
+            <div class="heroimage">
+                <img src="https://images.unsplash.com/photo-1520975698519-0f3c3b9a3f6d" alt="Login">
+            </div>
+        </div>
+
+        <div class="auth-container">
+            <div class="auth-visual">
+                <img src="https://images.unsplash.com/photo-1520975698519-0f3c3b9a3f6d" alt="Welcome back">
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-brand">
+                    <div class="logo"><a href="index.html"><img src="images/logo.jpg" alt="StyleStreet logo"></a></div>
+                    <div class="brand-text">StyleStreet</div>
+                </div>
+
+                <h2>Sign in to your account</h2>
+                <p class="lead">Enter your details to continue to StyleStreet.</p>
+
+                <form id="login-form" class="auth-form">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" name="email" type="email" placeholder="you@example.com" required>
+
+                    <label for="login-pass">Password</label>
+                    <input id="login-pass" name="password" type="password" placeholder="Password" required>
+
+                    <div class="auth-actions">
+                        <label class="remember"><input type="checkbox"> Remember me</label>
+                        <button type="submit">Sign In</button>
+                    </div>
+
+                    <div class="auth-aux"><a href="#">Forgot password?</a> • <a href="signup.html">Create account</a></div>
+
+                    <div id="login-message" style="margin-top:12px;color:var(--muted);"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART DRAWER (copied for functionality) -->
+    <aside id="cart-drawer" aria-hidden="true">
+        <div class="cart-inner">
+            <header class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="cart-close" aria-label="Close cart"><span class="material-icons">close</span></button>
+            </header>
+
+            <div class="cart-items"></div>
+
+            <footer class="cart-footer">
+                <div class="cart-total">Total: <span class="cart-total-value">$0.00</span></div>
+                <button class="checkout">Checkout</button>
+            </footer>
+        </div>
+    </aside>
+
+    <div id="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <p>&copy; 2025 StyleStreet. All Rights Reserved.</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
